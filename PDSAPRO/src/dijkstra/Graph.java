@@ -227,7 +227,7 @@ public class Graph {
 
         for (Vertex v : graph.values()) {
 
-//            v.printPath();
+            v.printPath();
             System.err.println(graph.get("a"));
 
         }
