@@ -213,6 +213,8 @@ public class Graph {
 //			System.err.printf(" \"%s\"\n", endName);
             Visible vsbl = new Visible();
             vsbl.ErrMassage("Destination city not available");
+            
+            System.out.println("nnn");
             return;
         }
         graph.get(endName).printPath();
