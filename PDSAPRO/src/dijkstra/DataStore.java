@@ -10,7 +10,8 @@ package dijkstra;
  * @author Waruna
  */
 public class DataStore {
-public static Graph.Edge[] GRAPH = {
+
+    public static Graph.Edge[] GRAPH = {
         new Graph.Edge("a", "h", 8),
         new Graph.Edge("b", "h", 11),
         new Graph.Edge("b", "c", 8),
@@ -23,13 +24,8 @@ public static Graph.Edge[] GRAPH = {
         new Graph.Edge("g", "h", 1),
         new Graph.Edge("i", "g", 6),
         new Graph.Edge("h", "i", 8),};
-   
 
 //public static void ccccc(){
-    
-    
-    
-    
 }
 //    public static Graph.Edge[] GRAPH = {
 //        new Graph.Edge("a", "h", 8),
@@ -44,11 +40,4 @@ public static Graph.Edge[] GRAPH = {
 //        new Graph.Edge("g", "h", 1),
 //        new Graph.Edge("i", "g", 6),
 //        new Graph.Edge("h", "i", 8),};
-
-
-    
-    
-   
-
-
 

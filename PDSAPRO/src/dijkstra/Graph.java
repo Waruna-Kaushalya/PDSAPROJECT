@@ -14,7 +14,7 @@ import java.util.*;
 public class Graph {
 //     DataStore dddddd= new DataStore();
 
-    public String SendName1;
+//    public String SendName1;
     private final Map<String, Vertex> graph; // mapping of vertex names to Vertex objects, built from a set of Edges
 
     /**
@@ -80,8 +80,10 @@ public class Graph {
         public List<String> TotalDist = new ArrayList<String>();
 
         public String TotalDistance;
-
+//public static String DS;
+         public static  String DS ;
         private void printPath() {
+         
 
             Visible vbl = new Visible();
 
@@ -91,7 +93,6 @@ public class Graph {
             if (this == this.previous) {
 
                 System.out.printf("%s", this.name);
-
             } else if (this.previous == null) {
 
                 System.out.printf("%s(unreached)", this.name);
@@ -106,17 +107,23 @@ public class Graph {
                 TotalDist.add(TotalDistance);
 //                }
 
-                System.out.printf(" -> %s(%d)", this.name, this.dist);
-
+//                System.err.printf(" -> %s(%d)", this.name, this.dist);
+                   DS = " -> " + this.name + "(" + this.dist + ")";
+//                System.err.printf(DS);
                 Name.add(this.name);
                 Dist.add(TotalDistance);
                 vbl.GetNameDist(Name, Dist);
-
+                
+                
             }
-
-            vbl.GetArray(CityList, TotalDist);
+            vbl.GetArray(DS);
+            
+            
+                         
+//            vbl.GetArray(CityList, TotalDist);
 
         }
+        
 
         public int compareTo(Vertex other) {
             if (dist == other.dist) {
@@ -213,8 +220,8 @@ public class Graph {
 //			System.err.printf(" \"%s\"\n", endName);
             Visible vsbl = new Visible();
             vsbl.ErrMassage("Destination city not available");
-            
-            System.out.println("nnn");
+
+//            System.out.println("nnn");
             return;
         }
         graph.get(endName).printPath();
@@ -230,7 +237,7 @@ public class Graph {
         for (Vertex v : graph.values()) {
 
             v.printPath();
-            System.err.println(graph.get("a"));
+//            System.err.println(graph.get("a"));
             System.out.println("\n");
 
         }
@@ -244,17 +251,13 @@ public class Graph {
     }
 
     public void AddCity(String A) {
-     graph.get("a").neighbours.put(graph.get("c"), 5);
-     
-     
-     
-     
+        graph.get("a").neighbours.put(graph.get("c"), 5);
+
 //     graph.
 //        Graph.Edge[] GRAPH = {
 //            new Graph.Edge("a", "z", 8),
 //            new Graph.Edge("z", "h", 11),};
 //        graph.size();
-
     }
 
     public void Update(String CityA, String CityB, int Distance) {
@@ -274,7 +277,6 @@ public class Graph {
         graph.get(CityB).neighbours.put(graph.get(CityA), Distance);
 
 //        
-
 //     }
     }
 
