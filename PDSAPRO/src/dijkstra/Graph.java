@@ -229,6 +229,7 @@ public class Graph {
 
             v.printPath();
             System.err.println(graph.get("a"));
+            System.out.println("\n");
 
         }
 
