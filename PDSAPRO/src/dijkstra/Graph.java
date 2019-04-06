@@ -81,8 +81,8 @@ public class Graph {
 
         public String TotalDistance;
 
-        private void printPath() {
-
+        private String printPath(String A) {
+//           CityList.add(A);
             Visible vbl = new Visible();
 
             List<String> Name = new ArrayList<String>();
@@ -96,7 +96,7 @@ public class Graph {
 
                 System.out.printf("%s(unreached)", this.name);
             } else {
-                this.previous.printPath();
+                this.previous.printPath(null);
 
                 TotalDistance = Integer.toString(this.dist);
 
@@ -106,7 +106,7 @@ public class Graph {
                 TotalDist.add(TotalDistance);
 //                }
 
-                System.out.printf(" -> %s(%d)", this.name, this.dist);
+//                System.out.printf(" -> %s(%d)", this.name, this.dist);
 
                 Name.add(this.name);
                 Dist.add(TotalDistance);
@@ -115,7 +115,7 @@ public class Graph {
             }
 
             vbl.GetArray(CityList, TotalDist);
-
+return "";
         }
 
         public int compareTo(Vertex other) {
@@ -217,7 +217,7 @@ public class Graph {
             System.out.println("nnn");
             return;
         }
-        graph.get(endName).printPath();
+        graph.get(endName).printPath(null);
         System.out.println();
     }
 
@@ -229,8 +229,9 @@ public class Graph {
 
         for (Vertex v : graph.values()) {
 
-            v.printPath();
-            System.err.println(graph.get("a"));
+            v.printPath("|");
+            v.CityList.add("\n");
+//            System.err.println(graph.get("a"));
             System.out.println("\n");
 
         }

@@ -399,6 +399,14 @@ public class Visible extends javax.swing.JFrame {
             //            System.err.println(ggg[0]);
             JTPath.removeAll();
             JTPath.setText(ggg[1]);
+           //******************************
+            String[] lines = CityList.split("\\r?\\n");
+                for (String line : lines) {
+             JTPath.setText(line);
+                    System.err.println(line);
+      }
+            
+            //*******************************
 
             System.out.println(CityList);
         } else {
@@ -438,7 +446,8 @@ public class Visible extends javax.swing.JFrame {
 
         CityList = null;
         TotalDistance = null;
-        String A = JTStart.getText();
+        String A ="a";
+         A = JTStart.getText();
         String B = JTEnd.getText();
         if (!A.equals(B)) {
 
@@ -451,7 +460,7 @@ public class Visible extends javax.swing.JFrame {
             JTAreaAll.removeAll();
             JTAreaAll.setText(ggg[1]);
 
-                        System.out.println(CityList);
+//                        System.out.println(CityList);
         } else {
             JTDistance.removeAll();
             JTPath.removeAll();
