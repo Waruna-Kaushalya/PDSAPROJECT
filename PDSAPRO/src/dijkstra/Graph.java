@@ -12,7 +12,7 @@ import java.util.*;
  * @author Waruna
  */
 public class Graph {
-//     DataStore dddddd= new DataStore();
+
 
     public String SendName1;
     private final Map<String, Vertex> graph; // mapping of vertex names to Vertex objects, built from a set of Edges
@@ -31,7 +31,10 @@ public class Graph {
             this.dist = dist;
         }
     }
-
+    
+    /**
+     * Builds a graph from a set of edges
+     */
     public Graph(Edge[] edges) {
         graph = new HashMap<>(edges.length);
 //        System.err.println(edges);
@@ -69,20 +72,19 @@ public class Graph {
 
         public Vertex(String name) {
             this.name = name;
-//            for (Map.Entry Pair: neighbours.entrySet()){
-//         System.out.println(Pair.getKey()+" : "+Pair.getValue());
-//     }
+
+
         }
 
         int g = 0;
 
-        public List<String> CityList = new ArrayList<String>();
+        public  List<String> CityList = new ArrayList<String>();
         public List<String> TotalDist = new ArrayList<String>();
 
         public String TotalDistance;
 
-        private String printPath(String A) {
-//           CityList.add(A);
+        private String printPath() {
+
             Visible vbl = new Visible();
 
             List<String> Name = new ArrayList<String>();
@@ -90,32 +92,30 @@ public class Graph {
 
             if (this == this.previous) {
 
-                System.out.printf("%s", this.name);
+//                System.out.printf("%s", this.name);
 
             } else if (this.previous == null) {
 
-                System.out.printf("%s(unreached)", this.name);
+//                System.out.printf("%s(unreached)", this.name);
             } else {
-                this.previous.printPath(null);
+                this.previous.printPath();
 
                 TotalDistance = Integer.toString(this.dist);
 
                 CityList.clear();
-                TotalDist.clear();
                 CityList.add(this.name);
+                TotalDist.clear();
                 TotalDist.add(TotalDistance);
-//                }
-
-//                System.out.printf(" -> %s(%d)", this.name, this.dist);
 
                 Name.add(this.name);
                 Dist.add(TotalDistance);
+
                 vbl.GetNameDist(Name, Dist);
 
             }
 
             vbl.GetArray(CityList, TotalDist);
-return "";
+            return "";
         }
 
         public int compareTo(Vertex other) {
@@ -131,31 +131,7 @@ return "";
         }
     }
 
-    /**
-     * Builds a graph from a set of edges
-     */
-//    public Graph(Edge[] edges) {
-//        graph = new HashMap<>(edges.length);
-//        System.err.println(edges);
-//        // one pass to find all vertices
-//        for (Edge e : edges) {
-//            if (!graph.containsKey(e.START)) {
-//                graph.put(e.START, new Vertex(e.START));
-//                System.err.println(e.START);
-//            }
-//            if (!graph.containsKey(e.END)) {
-//                graph.put(e.END, new Vertex(e.END));
-//                   System.err.println(e.END);
-//            }
-//        }
-//        
-//        // another pass to set neighbouring vertices
-//        for (Edge e : edges) {
-//            graph.get(e.START).neighbours.put(graph.get(e.END), e.dist);
-//            graph.get(e.END).neighbours.put(graph.get(e.START), e.dist); // also do this
-//            // for an undirected graph
-//        }
-//    }
+   
     /**
      * Runs dijkstra using a specified source vertex
      */
@@ -210,14 +186,14 @@ return "";
      */
     public void printPath(String endName) {
         if (!graph.containsKey(endName)) {
-//			System.err.printf(" \"%s\"\n", endName);
+
             Visible vsbl = new Visible();
             vsbl.ErrMassage("Destination city not available");
 
             System.out.println("nnn");
             return;
         }
-        graph.get(endName).printPath(null);
+        graph.get(endName).printPath();
         System.out.println();
     }
 
@@ -228,10 +204,10 @@ return "";
     public void printAllPaths() {
 
         for (Vertex v : graph.values()) {
-
-            v.printPath("|");
+           
+            v.printPath();
             v.CityList.add("\n");
-//            System.err.println(graph.get("a"));
+
             System.out.println("\n");
 
         }
@@ -247,31 +223,15 @@ return "";
     public void AddCity(String A) {
         graph.get("a").neighbours.put(graph.get("c"), 5);
 
-//     graph.
-//        Graph.Edge[] GRAPH = {
-//            new Graph.Edge("a", "z", 8),
-//            new Graph.Edge("z", "h", 11),};
-//        graph.size();
+
     }
 
     public void Update(String CityA, String CityB, int Distance) {
-//     graph.containsValue(1);
-//        System.err.println(graph.containsValue(1));
-//        System.out.println();
-//     graph.put(A, null)
-//        Vertex v = null;
-//         Vertex c = null;
 
-//        graph.replace("a", v, c);
-//        graph.clear();
-//     for (Map.Entry Pair: graph.entrySet()){
-//         System.out.println(Pair.getKey()+" : "+Pair.getValue());
-//       graph.put("a", new Vertex("z"));
         graph.get(CityA).neighbours.put(graph.get(CityB), Distance);
         graph.get(CityB).neighbours.put(graph.get(CityA), Distance);
 
-//        
-//     }
+
     }
 
 }
